@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+        "http://castor.org/mapping.dtd" >
+<mapping>
+    <field-handler name="dateHandler" class="com.simple.util.DateTimeFieldHandler">
+        <param name="date-format" value="yyyy-MM-dd"/>
+    </field-handler>
+
+    <class name="com.simple.entities.Contact" identity="id">
+        <map-to xml="contact"/>
+        <field name="id" type="long">
+            <bind-xml name="id" node="element"/>
+        </field>
+        <field name="name" type="string">
+            <bind-xml name="name" node="element"/>
+        </field>
+        <field name="price" type="float">
+            <bind-xml name="price" node="element"/>
+        </field>
+        <field name="buyDate" type="string" handler="dateHandler">
+            <bind-xml name="buyDate" node="element"/>
+        </field>
+        <field name="version" type="integer">
+            <bind-xml name="version" node="element"/>
+        </field>
+    </class>
+
+    <class name="com.simple.entities.Contacts">
+        <field name="contacts" collection="arraylist"
+               type="com.simple.entities.Contact">
+            <bind-xml name="contacts"/>
+        </field>
+    </class>
+
+</mapping>

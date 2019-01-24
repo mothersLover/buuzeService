@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <import resource="spring-data-jpa.xml"/>
+    <context:component-scan base-package="com.simple"/>
+    <context:property-placeholder location="classpath:delivery.properties"/>
+
+    <bean name="startUpProperties" class="com.simple.StartUpProperties">
+        <property name="containerPrice" value="10"/>
+        <property name="buuzePrice" value="${buuzePrice}"/>
+        <property name="containerCapacity" value="${containerCapacity}"/>
+        <property name="deliveryPrice" value="${deliveryPrice}"/>
+    </bean>
+</beans>
